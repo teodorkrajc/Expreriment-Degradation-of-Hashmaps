@@ -3,8 +3,28 @@ Common utilities for hashmap experiments.
 Implements the uniform 64-bit hash mixing function and shared constants.
 """
 
+from enum import Enum
+from typing import Optional
+
 # Fixed capacity for all experiments
 CAPACITY = 1 << 20  # 2^20 = 1,048,576
+
+
+class State(Enum):
+    """Entry state in hash tables."""
+    EMPTY = 0
+    OCCUPIED = 1
+    TOMBSTONE = 2
+
+
+class Entry:
+    """Hash table entry for open addressing variants."""
+    
+    def __init__(self):
+        self.key: Optional[int] = None
+        self.value: Optional[int] = None
+        self.state: State = State.EMPTY
+        self.dib: int = 0  # Distance from Initial Bucket (for Robin Hood)
 
 
 def mix(x: int) -> int:

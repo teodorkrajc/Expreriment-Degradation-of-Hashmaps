@@ -6,7 +6,7 @@ Tracks average and maximum chain lengths.
 """
 
 from typing import Optional
-from common import CAPACITY, get_index, OpResult
+from .common import CAPACITY, get_index, OpResult
 
 
 class Node:

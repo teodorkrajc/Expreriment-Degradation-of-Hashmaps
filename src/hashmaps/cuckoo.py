@@ -6,15 +6,15 @@ Tracks displacement counts and failed insertions.
 """
 
 from typing import Optional
-from common import CAPACITY, get_cuckoo_indices, OpResult
+from .common import CAPACITY, get_cuckoo_indices, OpResult
 
 
 # Maximum number of displacement attempts before considering insertion failed
 MAX_DISPLACEMENTS = 500
 
 
-class Entry:
-    """Hash table entry."""
+class CuckooEntry:
+    """Hash table entry for Cuckoo hashing (uses occupied flag instead of state)."""
     
     def __init__(self):
         self.key: Optional[int] = None
@@ -34,7 +34,7 @@ class CuckooMap:
         self.capacity = CAPACITY
         self.size = 0
         self.failed_inserts = 0  # Count of failed insertions
-        self.table = [Entry() for _ in range(CAPACITY)]
+        self.table = [CuckooEntry() for _ in range(CAPACITY)]
     
     def insert(self, key: int, value: int) -> OpResult:
         """
