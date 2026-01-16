@@ -1,3 +1,4 @@
 context/
 *.pyc
 src/hashmaps/__pycache__/
+.venv/
