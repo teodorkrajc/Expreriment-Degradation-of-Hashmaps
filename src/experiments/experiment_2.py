@@ -9,7 +9,7 @@ import random
 import time
 import csv
 from typing import List, Dict, Any
-from hashmaps import CAPACITY, LinearProbingMap, RobinHoodMap, ChainingMap, CuckooMap
+from ..hashmaps import CAPACITY, LinearProbingMap, RobinHoodMap, ChainingMap, CuckooMap
 
 
 # Hashmap variants to test

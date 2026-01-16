@@ -10,7 +10,7 @@ import time
 import csv
 import math
 from typing import List, Tuple, Any
-from hashmaps import CAPACITY, LinearProbingMap, RobinHoodMap, ChainingMap, CuckooMap
+from ..hashmaps import CAPACITY, LinearProbingMap, RobinHoodMap, ChainingMap, CuckooMap
 
 
 def compute_statistics(times_ns: List[float]) -> Tuple[float, float, float, float]:
